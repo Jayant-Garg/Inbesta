@@ -1,4 +1,92 @@
-.App {
+body{
+  margin: 0;
+  padding: 0;  
+}
+
+.slick-prev:before, .slick-next:before {
+  color: gray;
+}
+.slick-prev {
+  left: -35px;
+}
+.slick-next {
+  right: -35px;
+}
+
+/* styles.css */
+
+.settings-page {
+  margin: 20px;
+}
+
+.settings-section {
+  margin-bottom: 20px;
+}
+
+.settings-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.settings-toggle label {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  cursor: pointer;
+}
+
+.settings-toggle input[type="checkbox"] {
+  transform: scale(1.5);
+}
+
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.star {
+  font-size: 20px;
+  color: grey;
+}
+
+.star.selected {
+  color: green;
+}
+.custom-modal .modal-dialog {
+  max-width: 600px; /* Adjust the width as necessary */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* body, html {
+  height: 100%;
+  margin: 0;
+  overflow: hidden; 
+} */
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +123,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

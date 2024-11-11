@@ -1,0 +1,158 @@
+<Modal open={open} onClose={onClose} sx={{ overflowY: 'auto' }}>
+      <Box sx={{ maxWidth: 800, margin: 'auto', p: 4, backgroundColor: 'white', borderRadius: 2 }}>
+        {/* First section */}
+        <Box sx={{ textAlign: 'center', mb: 4 }}>
+          <Avatar src="brand-logo.jpg" alt={brandName} sx={{ width: 80, height: 80, margin: 'auto' }} />
+          <Typography variant="h6">{brandName}</Typography>
+          <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mt: 1 }}>
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} sx={{ color: i < 4 ? 'green' : 'gray' }} />
+            ))}
+          </Box>
+          <Typography variant="body2">34567 Reviews</Typography>
+        </Box>
+
+        {/* Divider */}
+        <Box sx={{ borderBottom: '1px solid #ddd', mb: 4 }} />
+
+        {/* Second section - left box */}
+        <Box sx={{ display: 'flex', gap: 4 }}>
+          <Box sx={{ flex: '70%' }}>
+            {!submitted ? (
+              <Box>
+                <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                  <Avatar alt="User" src="user-pic.jpg" />
+                  <Typography variant="body1" sx={{ ml: 2 }}>Username</Typography>
+                </Box>
+                {!isReviewBoxExpanded ? (
+                  <TextField
+                    fullWidth
+                    variant="outlined"
+                    placeholder="Write a review"
+                    onClick={handleReviewBoxClick}
+                  />
+                ) : (
+                  <Box>
+                    <TextField
+                      fullWidth
+                      variant="outlined"
+                      placeholder="Write your review"
+                      multiline
+                      rows={4}
+                      sx={{ mb: 2 }}
+                    />
+                    {/* Metrics */}
+                    {['Quality of clothing', 'Quality of print', 'Value for money', 'Recommendation'].map(metric => (
+                      <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }} key={metric}>
+                        <Typography sx={{ width: '40%' }}>{metric}</Typography>
+                        <Box>
+                          {[...Array(5)].map((_, i) => (
+                            <Star
+                              key={i}
+                              sx={{
+                                cursor: 'pointer',
+                                color: getStarColor(i + 1, hoveredStars[metric] || 0),
+                              }}
+                              onMouseEnter={() => handleHoverStars(metric, i + 1)}
+                              onMouseLeave={() => handleHoverStars(metric, 0)}
+                              onClick={() => setHoveredStars(prev => ({ ...prev, [metric]: i + 1 }))}
+                            />
+                          ))}
+                        </Box>
+                      </Box>
+                    ))}
+                    {/* Date of experience */}
+                    <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                      <Typography>Date of Experience</Typography>
+                      <Tooltip title="Your review must be about a past experience in the last 12 months">
+                        <IconButton size="small" sx={{ ml: 1 }}>i</IconButton>
+                      </Tooltip>
+                      <TextField
+                        type="date"
+                        variant="outlined"
+                        sx={{ ml: 2 }}
+                      />
+                    </Box>
+
+                    <Typography sx={{ textAlign: 'center', mb: 2 }}>
+                      By submitting this review, you confirm it’s based on a genuine experience and you haven’t received an incentive to write it.
+                    </Typography>
+                    <Button fullWidth variant="contained" onClick={handleSubmit}>Submit Review</Button>
+                  </Box>
+                )}
+              </Box>
+            ) : (
+              <Box>
+                <Typography>You have submitted a review for {brandName}</Typography>
+                <Button fullWidth variant="outlined">Submit another review!</Button>
+              </Box>
+            )}
+
+            {/* Reviews section */}
+            <Box>
+              {[...Array(10)].map((_, index) => (
+                <Box key={index} sx={{ border: '1px solid #ddd', borderRadius: 2, p: 2, mb: 2 }}>
+                  <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                      <Avatar alt="Reviewer" src="reviewer-pic.jpg" />
+                      <Box sx={{ ml: 2 }}>
+                        <Typography>Reviewer Name</Typography>
+                        <Typography variant="body2" sx={{ color: 'gray' }}>12 Reviews</Typography>
+                      </Box>
+                    </Box>
+                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                      <InstagramIcon sx={{ mx: 1 }} />
+                      <TwitterIcon sx={{ mx: 1 }} />
+                      <ThumbUp sx={{ mx: 1 }} titleAccess="Good review" />
+                      <ThumbDown sx={{ mx: 1 }} titleAccess="Nah didn't like it" />
+                      <Share sx={{ mx: 1 }} titleAccess="Share review" />
+                    </Box>
+                  </Box>
+                  <Typography sx={{ mt: 2 }}>This is a review content. Read more...</Typography>
+                </Box>
+              ))}
+            </Box>
+          </Box>
+
+          {/* Second section - right box */}
+          <Box sx={{ flex: '30%' }}>
+            <Box sx={{ border: '1px solid black', p: 2, mb: 4, position: 'relative' }}>
+              <Typography variant="h6">About {brandName}</Typography>
+              <Typography sx={{ WebkitLineClamp: 3, overflow: 'hidden', textOverflow: 'ellipsis', display: '-webkit-box', WebkitBoxOrient: 'vertical', position: 'relative' }}>
+                This is a description of the brand. Only three lines will be visible, with the third line blurred to indicate more content available.
+              </Typography>
+              <IconButton
+                sx={{ position: 'absolute', bottom: -10, left: '50%', transform: 'translateX(-50%)', backgroundColor: 'white', borderRadius: '50%' }}
+              >
+                <ExpandMore />
+              </IconButton>
+            </Box>
+
+            {/* Cards */}
+            <Box>
+              {[...Array(10)].map((_, index) => (
+                <Box key={index} sx={{ mb: 2, textAlign: 'center' }}>
+                  <Box sx={{ height: 300, width: 150, backgroundColor: '#f5f5f5', mb: 1 }}>Image</Box>
+                  <Typography>Price: ₹5000</Typography>
+                  <Typography variant="body2">0 Reviews</Typography>
+                </Box>
+              ))}
+            </Box>
+          </Box>
+        </Box>
+
+        {/* See More button */}
+        <Button
+          fullWidth
+          variant="contained"
+          sx={{
+            position: 'relative',
+            mt: 2,
+            mb: 2,
+            maxWidth: '100%',
+          }}
+        >
+          See More Reviews
+        </Button>
+      </Box>
+    </Modal>
