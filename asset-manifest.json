@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/Inbesta/static/css/main.76881c61.css",
+    "main.js": "/Inbesta/static/js/main.98c3863b.js",
+    "static/js/453.ed3810f9.chunk.js": "/Inbesta/static/js/453.ed3810f9.chunk.js",
+    "static/media/Sweatshirts.jpg": "/Inbesta/static/media/Sweatshirts.da4930c1e2ecaa46d7f6.jpg",
+    "static/media/hero3.jpg": "/Inbesta/static/media/hero3.f497a031f8365073d0f7.jpg",
+    "static/media/Joggers.jpg": "/Inbesta/static/media/Joggers.fdc9a9663b76842c6c5a.jpg",
+    "static/media/Utility-Vests.jpg": "/Inbesta/static/media/Utility-Vests.e593a4cd45ce868cd7b5.jpg",
+    "static/media/hoodies.jpg": "/Inbesta/static/media/hoodies.89e3b01afbc5fedb27d7.jpg",
+    "static/media/Cargos2.jpg": "/Inbesta/static/media/Cargos2.b9ecb22a71690c8be44f.jpg",
+    "static/media/Crop-Tops.jpg": "/Inbesta/static/media/Crop-Tops.a3cd4439edefd4bfa425.jpg",
+    "static/media/Corsets.jpg": "/Inbesta/static/media/Corsets.76c4196e9adcf569479a.jpg",
+    "static/media/Sneakers2.jpg": "/Inbesta/static/media/Sneakers2.691ece7c830fd435e2be.jpg",
+    "static/media/Tshirts.jpg": "/Inbesta/static/media/Tshirts.642074eb126d40deea59.jpg",
+    "index.html": "/Inbesta/index.html",
+    "main.76881c61.css.map": "/Inbesta/static/css/main.76881c61.css.map",
+    "main.98c3863b.js.map": "/Inbesta/static/js/main.98c3863b.js.map",
+    "453.ed3810f9.chunk.js.map": "/Inbesta/static/js/453.ed3810f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.76881c61.css",
+    "static/js/main.98c3863b.js"
+  ]
+}
