@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Inbesta/static/css/main.76881c61.css",
-    "main.js": "/Inbesta/static/js/main.98c3863b.js",
+    "main.js": "/Inbesta/static/js/main.0ff87d81.js",
     "static/js/453.ed3810f9.chunk.js": "/Inbesta/static/js/453.ed3810f9.chunk.js",
     "static/media/Sweatshirts.jpg": "/Inbesta/static/media/Sweatshirts.da4930c1e2ecaa46d7f6.jpg",
     "static/media/hero3.jpg": "/Inbesta/static/media/hero3.f497a031f8365073d0f7.jpg",
@@ -15,11 +15,11 @@
     "static/media/Tshirts.jpg": "/Inbesta/static/media/Tshirts.642074eb126d40deea59.jpg",
     "index.html": "/Inbesta/index.html",
     "main.76881c61.css.map": "/Inbesta/static/css/main.76881c61.css.map",
-    "main.98c3863b.js.map": "/Inbesta/static/js/main.98c3863b.js.map",
+    "main.0ff87d81.js.map": "/Inbesta/static/js/main.0ff87d81.js.map",
     "453.ed3810f9.chunk.js.map": "/Inbesta/static/js/453.ed3810f9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.76881c61.css",
-    "static/js/main.98c3863b.js"
+    "static/js/main.0ff87d81.js"
   ]
 }
