@@ -2,39 +2,22 @@ import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Person4Icon from '@mui/icons-material/Person4';
 
 import { Link } from 'react-router-dom';
+import Auth from './Auth';
+import SearchBar from './SearchBar';
 
 const pages = ['Categories', 'Top Rated', 'Blogs', 'FAQ'];
 const categories = ['Sweatshirts', 'Hoodies', 'T-shirts', 'Cargos', 'Joggers', 'Crop-tops', 'Utility Vests', 'Corsets', 'Sneakers'];
-// const settings = ['My Reviews', 'My Settings', 'Contact Us', 'Log out', 'Inbesta'];
-const settings = [
-  { label: 'My Reviews', path: '/myreviews' },
-  { label: 'MySettings', path: '/mysettings' },
-  { label: 'Contact Us', path: '/contactus' },
-  { label: 'Log out', path: '/logout' }
-];
 
 function ResponsiveAppBar() {
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [anchorElCategory, setAnchorElCategory] = React.useState(null);
-
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
 
   const handleOpenCategoryMenu = (event) => {
     setAnchorElCategory(event.currentTarget);
@@ -45,9 +28,31 @@ function ResponsiveAppBar() {
 
   return (
     <>
-      <AppBar position="fixed" sx={{ backgroundColor: '#6A00F4' }}>
-        <Container maxWidth='xxl'>
-          <Toolbar disableGutters>
+      <AppBar 
+        position="fixed" 
+        sx={{ 
+          backgroundColor: 'transparent',
+          boxShadow: 'none',
+          pt: 1,
+          pb: 1.5
+        }}
+      >
+        <Container maxWidth="lg" sx={{ px: 2 }}>
+          <Toolbar
+            disableGutters
+            sx={{
+              width: '100%',
+              background: 'linear-gradient(135deg, rgba(15,23,42,0.6), rgba(55,65,81,0.52))',
+              backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
+              boxShadow: '0 8px 24px rgba(15,23,42,0.35)',
+              borderRadius: '999px',
+              px: { xs: 2, md: 3 },
+              py: 1,
+              gap: 2,
+              alignItems: 'center'
+            }}
+          >
             {/* Logo Section */}
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
               <Box
@@ -63,7 +68,7 @@ function ResponsiveAppBar() {
                 }}
               >
                 <Typography variant="h6" sx={{ color: 'white' }}>
-                  <Link to={'/'}>L</Link>
+                  <Link to={'/'} style={{ color: 'inherit', textDecoration: 'none' }}>L</Link>
                 </Typography>
               </Box>
               <Typography
@@ -79,7 +84,10 @@ function ResponsiveAppBar() {
                   textDecoration: 'none',
                 }}
               >
-                <Link to={'/'}>
+                <Link 
+                  to={'/'} 
+                  style={{ color: 'inherit', textDecoration: 'none' }}
+                >
                   INBESTA
                 </Link>
               </Typography>
@@ -87,18 +95,9 @@ function ResponsiveAppBar() {
 
             {/* Search Bar */}
             <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center' }}>
-              <input
-                type="text"
-                placeholder="Search by category, brand, reviews"
-                style={{
-                  width: '40%',
-                  padding: '10px',
-                  borderRadius: '4px',
-                  border: '1px solid #D100D1',
-                  boxShadow: '0 0 5px rgba(0, 0, 0, 0.2)',
-                  marginRight: '20%'
-                }}
-              />
+              <Box sx={{ width: '100%', maxWidth: 420 }}>
+                <SearchBar variant="navbar" />
+              </Box>
             </Box>
 
             {/* Navbar Items */}
@@ -165,8 +164,12 @@ function ResponsiveAppBar() {
                 }}
                 sx={{
                   "& .MuiPaper-root": {
-                    backgroundColor: '#6A00F4',
+                    backgroundColor: '#1f2937',
+                    color: '#f9fafb',
                     marginTop: '10px',
+                    borderRadius: 2,
+                    boxShadow: '0 18px 45px rgba(15,23,42,0.55)',
+                    minWidth: 200,
                   },
                 }}
               >
@@ -189,62 +192,12 @@ function ResponsiveAppBar() {
                 ))}
               </Menu>
 
-              {/* User Avatar and Menu */}
-              <Tooltip title="Open settings">
-                <IconButton
-                  onMouseEnter={handleOpenUserMenu}
-                  sx={{ p: 0 }}
-                >
-                  <Avatar sx={{ bgcolor: '#E500A4', color: 'white' }}>
-                    <Person4Icon />
-                  </Avatar>
-                </IconButton>
-              </Tooltip>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorElUser}
-                anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-                keepMounted
-                transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-                open={Boolean(anchorElUser)}
-                onClose={handleCloseUserMenu}
-                MenuListProps={{
-                  onMouseLeave: handleCloseUserMenu,
-                  sx: { mt: 1 },
-                }}
-                sx={{
-                  "& .MuiPaper-root": {
-                    backgroundColor: '#6A00F4',
-                    marginTop: '10px',
-                  },
-                }}
-              >
-                {settings.map((setting) => (
-                  <Link to={setting.path} style={{ textDecoration: 'none', color: 'inherit' }}>
-                    <MenuItem
-                      key={setting.label}
-                      onClick={handleCloseUserMenu}
-                      sx={{
-                        "&:focus": {
-                          backgroundColor: 'inherit', // Remove background color on focus
-                        },
-                        "&:hover": {
-                          backgroundColor: 'white',
-                          color: '#E500A4',
-                        },
-                      }}
-                    >
-                      {setting.label}
-                    </MenuItem>
-                  </Link>
-                ))}
-              </Menu>
+              {/* User Avatar and Menu - Replace with Auth */}
+              <Auth />
             </Box>
           </Toolbar>
         </Container>
       </AppBar>
-      {/* Space below AppBar */}
-      <Box sx={{ height: '64px' }}></Box>
     </>
   );
 }

@@ -8,22 +8,21 @@ function HeroSection() {
   return (
     <Box
       sx={{
-        height: 'calc(60vh)', 
+        height: '80vh',
         backgroundImage: `url(${BgImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'flex-start',
-        pt: 17,
-        boxSizing: 'border-box', 
+        justifyContent: 'center',
+        boxSizing: 'border-box',
       }}
     >
       <Button 
         variant="contained" 
-        color="secondary" 
-        sx={{ fontSize: '1.5rem', mb: 3 }}
+        className="primary-button"
+        sx={{ fontSize: '1.2rem', mb: 3, px: 4 }}
       >
         Submit a Review
       </Button>
